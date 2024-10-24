@@ -1,0 +1,18 @@
+{% extends 'mailmate/base.html' %}
+{% block content %}
+<h2>Inbox</h2>
+{% if emails %}
+    <ul>
+        {% for email in emails %}
+            <li>
+                <strong>From:</strong> {{ email.sender }}<br>
+                <strong>Subject:</strong> {{ email.subject }}<br>
+                <p>{{ email.body }}</p>
+                <hr>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No emails to display.</p>
+{% endif %}
+{% endblock %}
